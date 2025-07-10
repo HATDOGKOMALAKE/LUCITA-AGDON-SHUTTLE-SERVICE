@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AGDONBUSSERVICE Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(to right, #d4fdd4, #a4caff);
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      border-bottom: 1px solid #00000080;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-container .logo {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: inline-block;
+    }
+
+    .form-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .logo-container h1 {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .green { color: #3f5932; }
+    .blue { color: #2563eb; }
+    .red { color: #ef4444; }
+
+    .header-buttons button {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin-left: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 1px solid #000;
+      transition: 0.3s ease;
+    }
+
+    .header-buttons .outline {
+      background: transparent;
+    }
+
+    .header-buttons .filled {
+      background-color: #6b849e;
+      color: white;
+      border: none;
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 80px);
+    }
+
+    .form-container {
+      background-color: #a4caff;
+      padding: 40px;
+      border-radius: 16px;
+      width: 350px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      border: 1px solid #00000050;
+      text-align: center;
+    }
+
+    .form-container h2 {
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+
+    form label {
+      display: block;
+      text-align: left;
+      font-weight: 600;
+      margin: 12px 0 4px;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 12px;
+    }
+
+    .input-group i {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #555;
+    }
+
+    /* Style for the eye icon on the right side */
+    .input-group i.fa-eye {
+      left: auto;
+      right: 10px;
+      cursor: pointer;
+      color: #555;
+      font-size: 18px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px 40px 10px 35px;
+      border-radius: 12px;
+      border: 1px solid #333;
+      font-size: 16px;
+    }
+
+    .checkbox {
+      text-align: left;
+      font-size: 12px;
+      margin: 10px 0;
+    }
+
+    .checkbox a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .form-button {
+      background-color: #3bb3fd;
+      color: #000;
+      border: none;
+      border-radius: 12px;
+      padding: 12px;
+      width: 100%;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+
+    .form-button:hover {
+      background-color: #2563eb;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="logo.png" alt="Logo" class="logo">
+      <h1><span class="green">AGDON</span><span class="blue">BUS</span><span class="red">SERVICE</span></h1>
+    </div>
+    <div class="header-buttons">
+      <button class="outline" onclick="window.location.href='login.html'">Log In</button>
+      <button class="filled">Sign Up</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="form-container">
+      <img src="logo.png" alt="Logo" class="form-logo">
+      <h2><span class="green">AGDON</span><span class="blue">BUS</span><span class="red">SERVICE</span></h2>
+      <form>
+        <label for="username">Username:</label>
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" id="username" placeholder="Username" />
+        </div>
+
+        <label for="password">Password:</label>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="password" placeholder="Password" />
+          <i class="fas fa-eye" onclick="togglePassword()" title="Show/Hide Password"></i>
+        </div>
+
+        <div class="checkbox">
+          <input type="checkbox" id="terms" />
+          <label for="terms">I Accept the <a href="#">Terms of Use</a> & <a href="#">Privacy Policy</a></label>
+        </div>
+
+        <button type="submit" class="form-button">Sign Up</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    function togglePassword() {
+      const passwordInput = document.getElementById('password');
+      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+    }
+  </script>
+</body>
+</html>
